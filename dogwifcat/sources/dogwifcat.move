@@ -40,4 +40,13 @@ module dogwifcat::dogwifcat {
         let new_coin = coin::mint(cap, value, ctx);
         transfer::public_transfer(new_coin, recipient);
     }
+	
+    public entry fun burn
+    (
+        cap: &mut coin::TreasuryCap<DOGWIFCAT>, 
+        coin: coin::Coin<DOGWIFCAT>
+    )
+    {
+        coin::burn(cap, coin);
+    }
 }
